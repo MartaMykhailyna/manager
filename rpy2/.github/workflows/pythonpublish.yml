@@ -1,0 +1,40 @@
+name: Publish Python Package
+
+on:
+  release:
+    types:
+      - released
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+    tags:
+     - RELEASE_3_*_*
+  workflow_run:
+    workflows: ["Python package"]
+    branches: [main]
+    types:
+      - completed
+jobs:
+  deploy:
+    # the 2nd condition
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+    - uses: actions/download-artifact@v3
+      with:
+        name: rpy2-sdist
+        path: dist/
+    - name: Publish
+      if: github.event_name == 'release'
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
+        packages-dir: dist/
