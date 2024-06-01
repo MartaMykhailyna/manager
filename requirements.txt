@@ -41,6 +41,7 @@ platformdirs==4.2.1
 playwright==1.41.2
 pluggy==1.4.0
 psycopg2==2.9.9
+psycopg2-binary==2.9.9
 pycodestyle==2.10.0
 pydantic==1.10.15
 pyee==11.0.1
