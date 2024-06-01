@@ -70,10 +70,11 @@ typing-extensions = "==4.8.0"
 tzdata = "==2023.3"
 urllib3 = "==2.2.0"
 virtualenv = "==20.26.1"
-whitenoise = "==6.6.0"
+whitenoise = "*"
 xmlschema = "==3.3.1"
 yarl = "==1.9.4"
 "zope.interface" = "==6.4.post2"
+gunicorn = "*"
 
 [dev-packages]
 
