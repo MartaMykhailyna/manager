@@ -4,7 +4,7 @@ from manager_app.models import *
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib import messages
-import plotly.express as px
+# import plotly.express as px
 from datetime import datetime,timedelta
 
 def items(request):

@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'manager_add',
     'manager_login',
     'manager_welcome',
-    'livereload',
-    'django_rename_app',
 ]
 
 MIDDLEWARE = [
