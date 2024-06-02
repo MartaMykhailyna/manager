@@ -4,8 +4,13 @@ import os
 import django
 from django.conf import settings
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'manager.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "manager.settings")
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 django.setup()
+
+from asgiref.sync import sync_to_async
+
+
 from manager_app.models import *
 from datetime import datetime, timedelta
 
