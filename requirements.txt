@@ -33,7 +33,6 @@ MarkupSafe==2.1.5
 mdurl==0.1.2
 multidict==6.0.5
 mysql-connector-python==8.4.0
-mysqlclient==2.1.1
 packaging==23.2
 pain001==0.0.25
 pillow==10.3.0
