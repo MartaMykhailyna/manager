@@ -9,7 +9,8 @@ django.setup()
 from manager_app.models import *
 from datetime import datetime, timedelta
 
-bot = telebot.TeleBot("7016034202:AAE_2JBKktW-Sx_QLHenOrtBQY7s8F5ZUL4", parse_mode=None)
+# bot = telebot.TeleBot("7016034202:AAE_2JBKktW-Sx_QLHenOrtBQY7s8F5ZUL4", parse_mode=None)
+bot = os.getenv('TELEGRAM_TOKEN', parse_mode=None)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
@@ -235,5 +236,9 @@ def send_user_info(message):
     )
     
     bot.send_message(chat_id, user_details)
+    
+def main():
+    bot.polling(none_stop=True)
 
-bot.infinity_polling()
+if __name__ == "__main__":
+    main()
